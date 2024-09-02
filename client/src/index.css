@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+body,
+html {
+  background: #f4f2f2;
+}
+
+@layer components {
+  /* layout */
+  .wrapper {
+    @apply mx-auto px-8  lg:max-w-[75rem];
+  }
+  .flxColCenter {
+    @apply flex flex-col items-center;
+  }
+
+  .flxRowCenter {
+    @apply flex flex-row items-center justify-center;
+  }
+
+  .flxRowStart {
+    @apply flex flex-row justify-start;
+  }
+
+  .flxBtw {
+    @apply flex justify-between;
+  }
+
+  .flxColStart {
+    @apply flex flex-col items-start;
+  }
+
+  .header-margin {
+    @apply mt-36;
+  }
+
+  .primaryBg {
+    @apply bg-[#e20a03];
+  }
+
+  .primaryTextCol {
+    @apply text-[#e20a03];
+  }
+
+  .mainTextCol {
+    @apply text-white;
+  }
+
+  .highlightTextCol {
+    @apply text-[#e20a03];
+  }
+
+  .btn-bg {
+    @apply bg-[#e20a03];
+  }
+
+  .favourites-action-btn {
+    @apply flxRowStart gap-1 items-center hover:bg-black hover:text-white border-black border-[1px] px-3 py-1 rounded-full;
+  }
+
+  .highlightBorderCol {
+    @apply border-[#e20a03];
+  }
+
+  .product-card-wrapper {
+    @apply bg-white rounded-3xl overflow-hidden relative max-sm:w-full  sm:max-w-[18rem] max-sm:aspect-[16/15] aspect-[16/17] sm:hover:scale-105 transition duration-300;
+  }
+
+  .carousel-btn {
+    @apply btn-bg absolute text-white top-1/2 -translate-y-1/2 w-[4rem] text-lg h-[4rem] flxColCenter justify-center rounded-[999px] z-10 hover:scale-105 transition-transform duration-500;
+  }
+
+  .auth-tab {
+    @apply w-[80vw] h-[80vh] fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white overflow-y-scroll transition duration-500 z-30 pb-10;
+  }
+
+  .auth-form-input {
+    @apply border-[1px] border-black/70 py-3 px-3 w-[18rem] rounded-md  text-sm;
+  }
+
+  .form-error {
+    @apply text-sm highlightTextCol;
+  }
+
+  .filter-boxes {
+    @apply flxBtw w-full cursor-pointer border-t-[1px] text-sm font-[530] py-5;
+  }
+}
+
+.mobile-nav {
+  transition: 3s;
+}
+
+input {
+  cursor: pointer;
+}
+
+.auth-tab::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.auth-tab::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+.genre-nav::-webkit-scrollbar {
+  display: none;
+}
