@@ -2,6 +2,7 @@ import { userModel } from "../database/models/userModel";
 import { Response, Request } from "express";
 import bcrypt from "bcryptjs";
 import createToken from "../utils/generateToken";
+import { MongoClient, ObjectId } from "mongodb";
 
 const registerUser = async (req: Request, res: Response) => {
   const user = req.body;
@@ -17,7 +18,7 @@ const registerUser = async (req: Request, res: Response) => {
 
     const newuser = await new userModel({
       email: user.email,
-      password: hashedPassword,
+      password: user.password,
       username: user.username,
     }).save();
 
@@ -37,12 +38,12 @@ const registerUser = async (req: Request, res: Response) => {
 const loginUser = async (req: Request, res: Response) => {
   const { email, password } = req.body;
   try {
-    const user = await userModel.findOne({ email: email });
+    const user = await userModel.findOne({ email, password });
     if (user) {
-      const passwordMatch = await bcrypt.compare(password, user.password);
-      if (!passwordMatch) {
-        return res.status(401).json({ password: "incorrect password" });
-      }
+      // const passwordMatch = await bcrypt.compare(password, user.password);
+      // if (!passwordMatch) {
+      //   return res.status(401).json({ password: "incorrect password" });
+      // }
       createToken({ res, userId: user._id as string });
       res.status(200).json({
         userId: user._id,

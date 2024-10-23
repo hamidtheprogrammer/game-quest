@@ -26,7 +26,7 @@ const Login: React.FC = () => {
   const {
     register,
     handleSubmit,
-    formState: { isSubmitting, errors },
+    formState: { errors },
   } = useForm<RegisterFormData>({
     resolver: zodResolver(schema),
   });

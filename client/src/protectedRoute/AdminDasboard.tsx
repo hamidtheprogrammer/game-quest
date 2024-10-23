@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
 import {
   AddProduct,
   DisplayUsers,
@@ -15,7 +14,6 @@ import { customError } from "../apiClient/authApi";
 
 const AdminDasboard: React.FC = () => {
   const [tab, setTab] = useState("users");
-  const navigate = useNavigate();
   const { currentUser } = useAuthUI();
   const [users, setUsers] = useState([]);
   const [updateProductId, setUpdateProductId] = useState<string>("");

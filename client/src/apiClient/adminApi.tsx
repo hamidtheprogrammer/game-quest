@@ -1,4 +1,3 @@
-import { productData } from "../protectedRoute/AddProduct";
 import { customError } from "./authApi";
 
 const serverUrl = import.meta.env.VITE_API_BASE_URL;
@@ -44,7 +43,7 @@ export const addProduct = async (data: FormData) => {
   return body;
 };
 
-export const updateProduct = async (data: productData) => {
+export const updateProduct = async (data: FormData) => {
   console.log(data.get("_id"));
 
   const response = await fetch(

@@ -3,9 +3,10 @@ import { v2 as cloudinary } from "cloudinary";
 
 export const connectDB = async () => {
   let connected;
+  let dbClient;
   try {
     if (!connected) {
-      await mongoose.connect(process.env.DATABASE_URL as string, {
+      dbClient = await mongoose.connect(process.env.DATABASE_URL as string, {
         dbName: "GameQuest",
         bufferCommands: true,
       });
@@ -15,6 +16,7 @@ export const connectDB = async () => {
   } catch (error) {
     console.log(error);
   }
+  return dbClient;
 };
 
 export const connectCloudinary = () => {

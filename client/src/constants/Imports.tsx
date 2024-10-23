@@ -50,7 +50,6 @@ import EditProductQuantity from "../components/UI/EditProductQuantity";
 import { useQueryClient } from "react-query";
 import Favourites from "../pages/Favourites";
 import AddReview from "../components/AddReview";
-import Hero from "../components/Hero";
 
 export const useAuthUI = (): GlobalProps => {
   const {

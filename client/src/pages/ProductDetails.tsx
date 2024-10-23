@@ -47,8 +47,6 @@ const ProductDetails: React.FC = () => {
 
   const reviewRef = useRef(null);
 
-  const scrollToReview = () => {};
-
   useEffect(() => {
     console.log(reviewRef.current);
   }, [reviewRef.current]);

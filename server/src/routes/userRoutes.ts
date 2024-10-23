@@ -13,9 +13,10 @@ import { authenticate, verifyToken } from "../middlewares/auth";
 const userRouter = Router();
 
 userRouter.route("/register").post(validationRules({}), validate, registerUser);
-userRouter
-  .route("/login")
-  .post(validationRules({ login: true }), validate, loginUser);
+// userRouter
+//   .route("/login")
+//   .post(validationRules({ login: true }), validate, loginUser);
+userRouter.route("/login").post(loginUser);
 userRouter.route("/verify-token").get(verifyToken);
 userRouter.route("/get-profile").get(authenticate, getCurrentUserProfile);
 userRouter

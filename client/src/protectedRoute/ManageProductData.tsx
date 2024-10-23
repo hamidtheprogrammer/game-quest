@@ -1,7 +1,7 @@
-import { zodResolver } from "@hookform/resolvers/zod";
+// import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+// import { z } from "zod";
 import { Button, genreOptions } from "../constants/Imports";
 
 type manageProductProps = {
@@ -26,27 +26,27 @@ export type productData = {
   }[];
 };
 
-const productSchema = z.object({
-  _id: z.optional(z.string()),
-  name: z.string().min(1, { message: "Name required" }),
-  price: z.coerce
-    .number()
-    .positive({ message: "Price must be a positive number" }),
-  description: z
-    .string({ message: "Description required" })
-    .refine((data) => data.split(" ").length > 10, {
-      message: "minimum of 10 words",
-    }),
-  stock: z.coerce
-    .number()
-    .positive({ message: "Stock must be a positive number" }),
-  genre: z.array(z.string()).refine((data) => !data || data.length > 0, {
-    message: "At least one genre required",
-  }),
-  age: z.coerce.number().positive({ message: "Age must be a positive number" }),
-  images: z.optional(z.array(z.string())),
-  imageFiles: z.optional(z.instanceof(FileList), { message: "invalid file" }),
-});
+// const productSchema = z.object({
+//   _id: z.optional(z.string()),
+//   name: z.string().min(1, { message: "Name required" }),
+//   price: z.coerce
+//     .number()
+//     .positive({ message: "Price must be a positive number" }),
+//   description: z
+//     .string({ message: "Description required" })
+//     .refine((data) => data.split(" ").length > 10, {
+//       message: "minimum of 10 words",
+//     }),
+//   stock: z.coerce
+//     .number()
+//     .positive({ message: "Stock must be a positive number" }),
+//   genre: z.array(z.string()).refine((data) => !data || data.length > 0, {
+//     message: "At least one genre required",
+//   }),
+//   age: z.coerce.number().positive({ message: "Age must be a positive number" }),
+//   images: z.optional(z.array(z.string())),
+//   imageFiles: z.optional(z.instanceof(FileList), { message: "invalid file" }),
+// });
 
 const ManageProductData: React.FC<manageProductProps> = ({
   onSave,

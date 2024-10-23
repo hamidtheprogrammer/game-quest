@@ -14,7 +14,7 @@ export type homepageProps = {
 
 const Home: React.FC = () => {
   const [games, setGames] = useState<homepageProps>({});
-  const { data, isLoading, isError, error } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryFn: getHomePageProducts,
   });
 
